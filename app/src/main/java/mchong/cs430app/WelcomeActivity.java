@@ -1,5 +1,6 @@
 package mchong.cs430app;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,7 +17,7 @@ import android.widget.TextView;
  * Created by matth on 9/16/2017.
  */
 
-public class WelcomeActivity extends AppCompatActivity {
+public class WelcomeActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
