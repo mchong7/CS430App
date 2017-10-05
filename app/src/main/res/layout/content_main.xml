@@ -8,13 +8,195 @@
     tools:context="mchong.cs430app.Main"
     tools:showIn="@layout/activity_main">
 
-    <TextView
+    <EditText
+        android:id="@+id/ZoneOneInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:ems="10"
+        android:hint="Zone One"
+        android:inputType="number"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="59dp" />
+
+    <EditText
+        android:id="@+id/ZoneTwoInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Zone Two"
+        android:inputType="number"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="102dp" />
+
+    <EditText
+        android:id="@+id/ZoneThreeInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Zone Three"
+        android:inputType="number"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="145dp" />
+
+    <EditText
+        android:id="@+id/ZoneFourInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Zone Four"
+        android:inputType="number"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="188dp" />
+
+    <EditText
+        android:id="@+id/ZoneFiveInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Zone Five"
+        android:inputType="number"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="234dp" />
+
+    <EditText
+        android:id="@+id/ZoneSixInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Zone Six"
+        android:inputType="number"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="277dp" />
+
+    <EditText
+        android:id="@+id/ZoneSevenInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Zone Seven"
+        android:inputType="number"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="320dp" />
+
+    <EditText
+        android:id="@+id/ZoneEightInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Zone Eight"
+        android:inputType="number"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="363dp" />
+
+    <EditText
+        android:id="@+id/ZoneNineInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Zone Nine"
+        android:inputType="number"
+        tools:layout_editor_absoluteY="406dp"
+        tools:layout_editor_absoluteX="28dp" />
+
+    <TextView
+        android:id="@+id/RoutineTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        tools:layout_editor_absoluteX="142dp"
+        tools:layout_editor_absoluteY="16dp"
+        tools:text="My Routine" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="Zone One Reps"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="243dp"
+        tools:layout_editor_absoluteY="59dp"
+        tools:text="10" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:contentDescription="Zone Two Reps"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="243dp"
+        tools:layout_editor_absoluteY="102dp"
+        tools:text="10" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="Zone Three Reps"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="243dp"
+        tools:layout_editor_absoluteY="145dp"
+        tools:text="10" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="Zone Four Reps"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="243dp"
+        tools:layout_editor_absoluteY="188dp"
+        tools:text="10" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="Zone Five Reps"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="243dp"
+        tools:layout_editor_absoluteY="231dp"
+        tools:text="10" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="Zone Six Reps"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="243dp"
+        tools:layout_editor_absoluteY="277dp"
+        tools:text="10" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="Zone Seven Reps"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="243dp"
+        tools:layout_editor_absoluteY="320dp"
+        tools:text="10" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="Zone Eight Reps"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="243dp"
+        tools:layout_editor_absoluteY="363dp"
+        tools:text="10" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="Zone Nine Reps"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="243dp"
+        tools:layout_editor_absoluteY="406dp"
+        tools:text="10" />
 
 </android.support.constraint.ConstraintLayout>
