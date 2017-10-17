@@ -20,19 +20,9 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <!--<include layout="@layout/content_main" />-->
+    <include layout="@layout/content_main" />
 
-    <EditText
-        android:id="@+id/ZoneOneInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Zone One"
-        android:inputType="number"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="59dp" />
-
-    <EditText
+    <!--<EditText
         android:id="@+id/ZoneTwoInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -101,16 +91,6 @@
         android:inputType="number"
         tools:layout_editor_absoluteX="28dp"
         tools:layout_editor_absoluteY="363dp" />
-
-    <EditText
-        android:id="@+id/ZoneNineInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Zone Nine"
-        android:inputType="number"
-        tools:layout_editor_absoluteY="406dp"
-        tools:layout_editor_absoluteX="28dp" />
 
     <TextView
         android:id="@+id/RoutineTitle"
@@ -212,5 +192,25 @@
         tools:layout_editor_absoluteX="243dp"
         tools:layout_editor_absoluteY="406dp"
         tools:text="10" />
+
+    <EditText
+        android:id="@+id/ZoneNineInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Zone Nine"
+        android:inputType="number"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="406dp" />
+
+    <EditText
+        android:id="@+id/ZoneOneInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Zone One"
+        android:inputType="number"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="59dp" />-->
 
 </android.support.design.widget.CoordinatorLayout>
