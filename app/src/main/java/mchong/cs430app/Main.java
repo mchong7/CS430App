@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 
 public class Main extends AppCompatActivity {
 
@@ -52,16 +53,26 @@ public class Main extends AppCompatActivity {
 
     // strike zone practice algorithm
 
+    EditText z1 = (EditText) findViewById(R.id.ZoneOneInput);
+    EditText z2 = (EditText) findViewById(R.id.ZoneTwoInput);
+    EditText z3 = (EditText) findViewById(R.id.ZoneThreeInput);
+    EditText z4 = (EditText) findViewById(R.id.ZoneFourInput);
+    EditText z5 = (EditText) findViewById(R.id.ZoneFiveInput);
+    EditText z6 = (EditText) findViewById(R.id.ZoneSixInput);
+    EditText z7 = (EditText) findViewById(R.id.ZoneSevenInput);
+    EditText z8 = (EditText) findViewById(R.id.ZoneEightInput);
+    EditText z9 = (EditText) findViewById(R.id.ZoneNineInput);
+
     // assign user input for successes in each zone to ints for use in algorithm
-    int z1field = input1;
-    int z2field = input2;
-    int z3field = input3;
-    int z4field = input4;
-    int z5field = input5;
-    int z6field = input6;
-    int z7field = input7;
-    int z8field = input8;
-    int z9field = input9;
+    int z1field = Integer.parseInt(z1.getText().toString());
+    int z2field = Integer.parseInt(z2.getText().toString());
+    int z3field = Integer.parseInt(z3.getText().toString());
+    int z4field = Integer.parseInt(z4.getText().toString());
+    int z5field = Integer.parseInt(z5.getText().toString());
+    int z6field = Integer.parseInt(z6.getText().toString());
+    int z7field = Integer.parseInt(z7.getText().toString());
+    int z8field = Integer.parseInt(z8.getText().toString());
+    int z9field = Integer.parseInt(z9.getText().toString());
 
     // int array to store the current amount of reps for each zone
     int[] reps = new int[9];
