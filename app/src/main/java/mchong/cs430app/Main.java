@@ -129,6 +129,16 @@ public class Main extends AppCompatActivity {
 
                     // edit text fields to display the adjusted reps for each zone
 
+                    z1reps.setText(Integer.toString(adjReps[0]));
+                    z2reps.setText(Integer.toString(adjReps[1]));
+                    z3reps.setText(Integer.toString(adjReps[2]));
+                    z4reps.setText(Integer.toString(adjReps[3]));
+                    z5reps.setText(Integer.toString(adjReps[4]));
+                    z6reps.setText(Integer.toString(adjReps[5]));
+                    z7reps.setText(Integer.toString(adjReps[6]));
+                    z8reps.setText(Integer.toString(adjReps[7]));
+                    z9reps.setText(Integer.toString(adjReps[8]));
+
                 } // end onClick
             }); // end setOnClickListener
         } // end if(submit != null)
