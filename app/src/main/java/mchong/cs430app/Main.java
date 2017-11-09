@@ -70,7 +70,7 @@ public class Main extends AppCompatActivity {
                     int z8field = Integer.parseInt(z8.getText().toString());
                     int z9field = Integer.parseInt(z9.getText().toString());
 
-                    int  z1CurrReps = Integer.parseInt(z1reps.getText().toString());
+                    //int  z1CurrReps = Integer.parseInt(z1reps.getText().toString());
 
                     // int array to store the current amount of reps for each zone
                     int[] reps = new int[] {
@@ -129,7 +129,27 @@ public class Main extends AppCompatActivity {
 
                     // edit text fields to display the adjusted reps for each zone
 
-                    z1reps.setText(Integer.toString(adjReps[0]));
+                    String z1text = Integer.toString(adjReps[0]);
+                    String z2text = Integer.toString(adjReps[1]);
+                    String z3text = Integer.toString(adjReps[2]);
+                    String z4text = Integer.toString(adjReps[3]);
+                    String z5text = Integer.toString(adjReps[4]);
+                    String z6text = Integer.toString(adjReps[5]);
+                    String z7text = Integer.toString(adjReps[6]);
+                    String z8text = Integer.toString(adjReps[7]);
+                    String z9text = Integer.toString(adjReps[8]);
+
+                    z1reps.setText(z1text);
+                    z2reps.setText(z2text);
+                    z3reps.setText(z3text);
+                    z4reps.setText(z4text);
+                    z5reps.setText(z5text);
+                    z6reps.setText(z6text);
+                    z7reps.setText(z7text);
+                    z8reps.setText(z8text);
+                    z9reps.setText(z9text);
+
+                    /*z1reps.setText(Integer.toString(adjReps[0]));
                     z2reps.setText(Integer.toString(adjReps[1]));
                     z3reps.setText(Integer.toString(adjReps[2]));
                     z4reps.setText(Integer.toString(adjReps[3]));
@@ -137,7 +157,7 @@ public class Main extends AppCompatActivity {
                     z6reps.setText(Integer.toString(adjReps[5]));
                     z7reps.setText(Integer.toString(adjReps[6]));
                     z8reps.setText(Integer.toString(adjReps[7]));
-                    z9reps.setText(Integer.toString(adjReps[8]));
+                    z9reps.setText(Integer.toString(adjReps[8]));*/
 
                 } // end onClick
             }); // end setOnClickListener
