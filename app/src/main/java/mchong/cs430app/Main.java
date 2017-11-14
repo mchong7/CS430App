@@ -87,7 +87,7 @@ public class Main extends AppCompatActivity {
 
                     // int array to store zone efficiency information
                     // success rates for each zone set using user input and known rep totals
-                    int[] zoneEff = new int[] {
+                    double[] zoneEff = new double[] {
                             z1field / reps[0],
                             z2field / reps[1],
                             z3field / reps[2],
@@ -108,19 +108,28 @@ public class Main extends AppCompatActivity {
                     // check the efficiencies for each zone and adjust them accordingly
                     for(int i = 0; i < 9; i++)
                     {
-                        // if current zone efficiency is below target effiency
+                        // if current zone efficiency is below target (goal) effiency
                         if(zoneEff[i] < goal)
                         {
                             // increase reps for that zone by the same % goal efficiency
                             adjReps[i] = (int) (reps[i] + (reps[i] * goal));
-                            // decrease reps for other zones by 10% if they're already hitting the target efficiency
+                            // decrease reps for other zones by 1 if they're already hitting the target efficiency
                             for(int j = 0; j < 9; j++)
                             {
                                 if(j != i)
                                 {
-                                    if(zoneEff[j] >= goal)
+                                    // if this is the first time going through the loop use previous values
+                                    // else, use most recent rep values
+                                    if(i == 0) {
+                                        if (zoneEff[j] >= goal) {
+                                            adjReps[j] = (int) (reps[j] - 1);
+                                        }
+                                    }
+                                    else
                                     {
-                                        adjReps[j] = (int) (reps[j] - (reps[j] * 0.1));
+                                        if (zoneEff[j] >= goal) {
+                                            adjReps[j] = adjReps[j] - 1;
+                                        }
                                     }
                                 }
                             }
@@ -128,8 +137,36 @@ public class Main extends AppCompatActivity {
                     }
 
                     // edit text fields to display the adjusted reps for each zone
+                    // rep counts should be no higher than 20 and no lower than 5
+                    String[] newText = new String[9];
 
-                    String z1text = Integer.toString(adjReps[0]);
+                    for(int h = 0; h < 9; h++)
+                    {
+                        if (adjReps[h] <= 20 && adjReps[h] >= 5)
+                        {
+                            newText[h] = Integer.toString(adjReps[h]);
+                        }
+                        else if(adjReps[h] > 20)
+                        {
+                            newText[h] = "20";
+                        }
+                        else if(adjReps[h] < 5)
+                        {
+                            newText[h] = "5";
+                        }
+                    }
+
+                    z1reps.setText(newText[0]);
+                    z2reps.setText(newText[1]);
+                    z3reps.setText(newText[2]);
+                    z4reps.setText(newText[3]);
+                    z5reps.setText(newText[4]);
+                    z6reps.setText(newText[5]);
+                    z7reps.setText(newText[6]);
+                    z8reps.setText(newText[7]);
+                    z9reps.setText(newText[8]);
+
+                    /*String z1text = Integer.toString(adjReps[0]);
                     String z2text = Integer.toString(adjReps[1]);
                     String z3text = Integer.toString(adjReps[2]);
                     String z4text = Integer.toString(adjReps[3]);
@@ -137,18 +174,7 @@ public class Main extends AppCompatActivity {
                     String z6text = Integer.toString(adjReps[5]);
                     String z7text = Integer.toString(adjReps[6]);
                     String z8text = Integer.toString(adjReps[7]);
-                    String z9text = Integer.toString(adjReps[8]);
-
-                    z1reps.setText(z1text);
-                    z2reps.setText(z2text);
-                    z3reps.setText(z3text);
-                    z4reps.setText(z4text);
-                    z5reps.setText(z5text);
-                    z6reps.setText(z6text);
-                    z7reps.setText(z7text);
-                    z8reps.setText(z8text);
-                    z9reps.setText(z9text);
-
+                    String z9text = Integer.toString(adjReps[8]);*/
                     /*z1reps.setText(Integer.toString(adjReps[0]));
                     z2reps.setText(Integer.toString(adjReps[1]));
                     z3reps.setText(Integer.toString(adjReps[2]));
