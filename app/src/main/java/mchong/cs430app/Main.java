@@ -105,34 +105,42 @@ public class Main extends AppCompatActivity {
                     // the user’s goal for efficiency in each zone (50% to start with)
                     double goal = 0.5;
 
+                    // marks whether or not it is the first time passing through the inner loop (j)
+                    boolean initialLoop = true;
+
                     // check the efficiencies for each zone and adjust them accordingly
                     for(int i = 0; i < 9; i++)
                     {
-                        // if current zone efficiency is below target (goal) effiency
+                        // if current zone efficiency is below target (goal) efficiency
                         if(zoneEff[i] < goal)
                         {
                             // increase reps for that zone by the same % goal efficiency
                             adjReps[i] = (int) (reps[i] + (reps[i] * goal));
                             // decrease reps for other zones by 1 if they're already hitting the target efficiency
+                            // otherwise keep them the same until their reps are increased or if their reps already have been increased
                             for(int j = 0; j < 9; j++)
                             {
+                                // if the current zone being viewed is not the same as the one that was already changed
                                 if(j != i)
                                 {
                                     // if this is the first time going through the loop use previous values
-                                    // else, use most recent rep values
-                                    if(i == 0) {
-                                        if (zoneEff[j] >= goal) {
-                                            adjReps[j] = (int) (reps[j] - 1);
-                                        }
-                                    }
-                                    else
+                                    // else, use the adjusted rep values to calculate the newest ones
+                                    if(initialLoop = true)
                                     {
+                                        // if the efficiency of the zone is greater than or equal to the goal efficiency
                                         if (zoneEff[j] >= goal) {
-                                            adjReps[j] = adjReps[j] - 1;
+                                            // decrease the amount of reps for that zone by one
+                                            adjReps[j] = reps[j] - 2;
+                                        }
+                                        else
+                                        {
+                                            adjReps[j] = adjReps[j] - 2;
                                         }
                                     }
                                 }
                             }
+                            // the initial loop through the reps is finished
+                            initialLoop = false;
                         }
                     }
 
