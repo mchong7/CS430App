@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Button;
+import static java.lang.Double.compare;
 
 public class Main extends AppCompatActivity {
 
@@ -58,19 +59,18 @@ public class Main extends AppCompatActivity {
                     TextView z8reps = (TextView) findViewById(R.id.textView9);
                     TextView z9reps = (TextView) findViewById(R.id.textView10);
 
-
-                    // assign user input for successes in each zone to ints for use in algorithm
-                    int z1field = Integer.parseInt(z1.getText().toString());
-                    int z2field = Integer.parseInt(z2.getText().toString());
-                    int z3field = Integer.parseInt(z3.getText().toString());
-                    int z4field = Integer.parseInt(z4.getText().toString());
-                    int z5field = Integer.parseInt(z5.getText().toString());
-                    int z6field = Integer.parseInt(z6.getText().toString());
-                    int z7field = Integer.parseInt(z7.getText().toString());
-                    int z8field = Integer.parseInt(z8.getText().toString());
-                    int z9field = Integer.parseInt(z9.getText().toString());
-
-                    //int  z1CurrReps = Integer.parseInt(z1reps.getText().toString());
+                    // array to store user-input values
+                    int[] inputField = new int[] {
+                            Integer.parseInt(z1.getText().toString()),
+                            Integer.parseInt(z2.getText().toString()),
+                            Integer.parseInt(z3.getText().toString()),
+                            Integer.parseInt(z4.getText().toString()),
+                            Integer.parseInt(z5.getText().toString()),
+                            Integer.parseInt(z6.getText().toString()),
+                            Integer.parseInt(z7.getText().toString()),
+                            Integer.parseInt(z8.getText().toString()),
+                            Integer.parseInt(z9.getText().toString())
+                    };
 
                     // int array to store the current amount of reps for each zone
                     int[] reps = new int[] {
@@ -88,61 +88,44 @@ public class Main extends AppCompatActivity {
                     // int array to store zone efficiency information
                     // success rates for each zone set using user input and known rep totals
                     double[] zoneEff = new double[] {
-                            z1field / reps[0],
-                            z2field / reps[1],
-                            z3field / reps[2],
-                            z4field / reps[3],
-                            z5field / reps[4],
-                            z6field / reps[5],
-                            z7field / reps[6],
-                            z8field / reps[7],
-                            z9field / reps[8]
+                            inputField[0] / reps[0],
+                            inputField[1] / reps[1],
+                            inputField[2] / reps[2],
+                            inputField[3] / reps[3],
+                            inputField[4] / reps[4],
+                            inputField[5] / reps[5],
+                            inputField[6] / reps[6],
+                            inputField[7] / reps[7],
+                            inputField[8] / reps[8]
                     };
 
                     // int array to store the adjusted amount of reps for each zone
-                    int[] adjReps = new int[9];
+                    int[] adjReps = new int[] {reps[0], reps[1], reps[2], reps[3], reps[4], reps[5], reps[6], reps[7], reps[8]};
 
                     // the user’s goal for efficiency in each zone (50% to start with)
                     double goal = 0.5;
-
-                    // marks whether or not it is the first time passing through the inner loop (j)
-                    boolean initialLoop = true;
 
                     // check the efficiencies for each zone and adjust them accordingly
                     for(int i = 0; i < 9; i++)
                     {
                         // if current zone efficiency is below target (goal) efficiency
-                        if(zoneEff[i] < goal)
+                        if(Double.compare(zoneEff[i], goal) < 0)
                         {
                             // increase reps for that zone by the same % goal efficiency
-                            adjReps[i] = (int) (reps[i] + (reps[i] * goal));
+                            reps[i] = (int) (reps[i] + (reps[i] * goal));
+
                             // decrease reps for other zones by 1 if they're already hitting the target efficiency
                             // otherwise keep them the same until their reps are increased or if their reps already have been increased
                             for(int j = 0; j < 9; j++)
                             {
-                                // if the current zone being viewed is not the same as the one that was already changed
-                                if(j != i)
+                                // if the efficiency of the zone is greater than or equal to the goal efficiency
+                                if(Double.compare(zoneEff[j], goal) >= 0)
                                 {
-                                    // if this is the first time going through the loop use previous values
-                                    // else, use the adjusted rep values to calculate the newest ones
-                                    if(initialLoop = true)
-                                    {
-                                        // if the efficiency of the zone is greater than or equal to the goal efficiency
-                                        if (zoneEff[j] >= goal) {
-                                            // decrease the amount of reps for that zone by one
-                                            adjReps[j] = reps[j] - 2;
-                                        }
-                                        else
-                                        {
-                                            adjReps[j] = adjReps[j] - 2;
-                                        }
-                                    }
-                                }
-                            }
-                            // the initial loop through the reps is finished
-                            initialLoop = false;
-                        }
-                    }
+                                    reps[j] = reps[j] - 2;
+                                } // end if
+                            } // end inner for-loop
+                        } // end if
+                    } // end outer for-loop
 
                     // edit text fields to display the adjusted reps for each zone
                     // rep counts should be no higher than 20 and no lower than 5
@@ -164,6 +147,7 @@ public class Main extends AppCompatActivity {
                         }
                     }
 
+                    // update textView fields in the GUI to reflect the new rep values for each zone
                     z1reps.setText(newText[0]);
                     z2reps.setText(newText[1]);
                     z3reps.setText(newText[2]);

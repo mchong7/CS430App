@@ -9,6 +9,19 @@
     tools:showIn="@layout/activity_main">
 
     <EditText
+        android:id="@+id/ZoneOneInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="28dp"
+        android:ems="10"
+        android:hint="Zone One"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/ZoneTwoInput"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1" />
+
+    <EditText
         android:id="@+id/ZoneTwoInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -104,6 +117,21 @@
         app:layout_constraintRight_toRightOf="@+id/ZoneSevenInput"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="@+id/ZoneSevenInput" />
+
+    <EditText
+        android:id="@+id/ZoneNineInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Zone Nine"
+        android:inputType="number"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="@+id/ZoneEightInput"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="62dp"
+        app:layout_constraintLeft_toLeftOf="@+id/ZoneEightInput" />
 
     <TextView
         android:id="@+id/RoutineTitle"
@@ -226,34 +254,9 @@
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toRightOf="@+id/ZoneEightInput" />
 
-    <EditText
-        android:id="@+id/ZoneNineInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Zone Nine"
-        android:inputType="number"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="@+id/ZoneEightInput"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="62dp"
-        app:layout_constraintLeft_toLeftOf="@+id/ZoneEightInput" />
 
-    <EditText
-        android:id="@+id/ZoneOneInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Zone One"
-        android:inputType="number"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/ZoneTwoInput"
-        android:layout_marginStart="28dp"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="28dp" />
+
+
 
     <Button
         android:id="@+id/submitButton"
