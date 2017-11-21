@@ -88,19 +88,19 @@ public class Main extends AppCompatActivity {
                     // int array to store zone efficiency information
                     // success rates for each zone set using user input and known rep totals
                     double[] zoneEff = new double[] {
-                            inputField[0] / reps[0],
-                            inputField[1] / reps[1],
-                            inputField[2] / reps[2],
-                            inputField[3] / reps[3],
-                            inputField[4] / reps[4],
-                            inputField[5] / reps[5],
-                            inputField[6] / reps[6],
-                            inputField[7] / reps[7],
-                            inputField[8] / reps[8]
+                            (double) inputField[0] / reps[0],
+                            (double) inputField[1] / reps[1],
+                            (double) inputField[2] / reps[2],
+                            (double) inputField[3] / reps[3],
+                            (double) inputField[4] / reps[4],
+                            (double) inputField[5] / reps[5],
+                            (double) inputField[6] / reps[6],
+                            (double) inputField[7] / reps[7],
+                            (double) inputField[8] / reps[8]
                     };
 
                     // int array to store the adjusted amount of reps for each zone
-                    int[] adjReps = new int[] {reps[0], reps[1], reps[2], reps[3], reps[4], reps[5], reps[6], reps[7], reps[8]};
+                    //int[] adjReps = new int[] {reps[0], reps[1], reps[2], reps[3], reps[4], reps[5], reps[6], reps[7], reps[8]};
 
                     // the user’s goal for efficiency in each zone (50% to start with)
                     double goal = 0.5;
@@ -133,15 +133,15 @@ public class Main extends AppCompatActivity {
 
                     for(int h = 0; h < 9; h++)
                     {
-                        if (adjReps[h] <= 20 && adjReps[h] >= 5)
+                        if (reps[h] <= 20 && reps[h] >= 5)
                         {
-                            newText[h] = Integer.toString(adjReps[h]);
+                            newText[h] = Integer.toString(reps[h]);
                         }
-                        else if(adjReps[h] > 20)
+                        else if(reps[h] > 20)
                         {
                             newText[h] = "20";
                         }
-                        else if(adjReps[h] < 5)
+                        else if(reps[h] < 5)
                         {
                             newText[h] = "5";
                         }
