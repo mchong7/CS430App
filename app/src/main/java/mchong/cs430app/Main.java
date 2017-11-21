@@ -158,6 +158,16 @@ public class Main extends AppCompatActivity {
                     z8reps.setText(newText[7]);
                     z9reps.setText(newText[8]);
 
+                    z1.setText("");
+                    z2.setText("");
+                    z3.setText("");
+                    z4.setText("");
+                    z5.setText("");
+                    z6.setText("");
+                    z7.setText("");
+                    z8.setText("");
+                    z9.setText("");
+
                     /*String z1text = Integer.toString(adjReps[0]);
                     String z2text = Integer.toString(adjReps[1]);
                     String z3text = Integer.toString(adjReps[2]);
