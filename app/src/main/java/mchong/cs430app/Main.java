@@ -18,6 +18,9 @@ import android.widget.ImageButton;
 import static java.lang.Double.compare;
 
 public class Main extends AppCompatActivity {
+    private boolean isEmpty(EditText etText) {
+        return etText.getText().toString().trim().length() == 0;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,14 +74,41 @@ public class Main extends AppCompatActivity {
                     // strike zone practice algorithm
 
                     EditText z1 = (EditText) findViewById(R.id.ZoneOneInput);
+                    if(isEmpty(z1)) {
+                        z1.setText("0");
+                    }
                     EditText z2 = (EditText) findViewById(R.id.ZoneTwoInput);
+                    if(isEmpty(z2)) {
+                        z2.setText("0");
+                    }
                     EditText z3 = (EditText) findViewById(R.id.ZoneThreeInput);
+                    if(isEmpty(z3)) {
+                        z3.setText("0");
+                    }
                     EditText z4 = (EditText) findViewById(R.id.ZoneFourInput);
+                    if(isEmpty(z4)) {
+                        z4.setText("0");
+                    }
                     EditText z5 = (EditText) findViewById(R.id.ZoneFiveInput);
+                    if(isEmpty(z5)) {
+                        z5.setText("0");
+                    }
                     EditText z6 = (EditText) findViewById(R.id.ZoneSixInput);
+                    if(isEmpty(z6)) {
+                        z6.setText("0");
+                    }
                     EditText z7 = (EditText) findViewById(R.id.ZoneSevenInput);
+                    if(isEmpty(z7)) {
+                        z7.setText("0");
+                    }
                     EditText z8 = (EditText) findViewById(R.id.ZoneEightInput);
+                    if(isEmpty(z8)) {
+                        z8.setText("0");
+                    }
                     EditText z9 = (EditText) findViewById(R.id.ZoneNineInput);
+                    if(isEmpty(z9)) {
+                        z9.setText("0");
+                    }
 
                     TextView z1reps = (TextView) findViewById(R.id.textView2);
                     TextView z2reps = (TextView) findViewById(R.id.textView3);
