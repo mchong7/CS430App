@@ -1,5 +1,8 @@
 package mchong.cs430app;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -11,6 +14,7 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Button;
+import android.widget.ImageButton;
 import static java.lang.Double.compare;
 
 public class Main extends AppCompatActivity {
@@ -20,6 +24,7 @@ public class Main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_main);
         Button submit = (Button) findViewById(R.id.submitButton);
+        ImageButton help = (ImageButton) findViewById(R.id.helpButton);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -31,6 +36,32 @@ public class Main extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         })*/;
+
+        if(help != null) {
+            help.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    AlertDialog helpAlert = new AlertDialog.Builder(Main.this).create();
+                    helpAlert.setTitle("Help");
+                    helpAlert.setMessage("How to use your routine:" + System.lineSeparator() + "1. Perform the amount of reps displayed for each sub-zone of the strike zone."
+                            + System.lineSeparator() + "(You may do them in whatever order you choose and in a manner that makes the most sense to you)" + System.lineSeparator()
+                            + "2. Input the amount of SUCCESSFUL reps performed for each sub-zone." + System.lineSeparator() + "(If none of the reps are successful, input a '0'"
+                            + System.lineSeparator() + "3. Once all sub-zones have had their reps entered, press the 'Submit' button." + System.lineSeparator() + System.lineSeparator()
+                            + "Every time you go through your routine, the rep count for each sub-zone will be adjusted to reflect your current skill level." + System.lineSeparator()
+                            + System.lineSeparator() + "Reps added to a zone indicate that improvement is needed, and reps deducted from a zone indicate that you are already at or above" +
+                            "your desired skill-level.");
+                    helpAlert.setButton(AlertDialog.BUTTON_NEUTRAL, "OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    helpAlert.show();
+                    Button errorOkButton = helpAlert.getButton(AlertDialog.BUTTON_NEUTRAL);
+                    errorOkButton.setBackgroundColor(Color.rgb(214, 215, 215));
+                    errorOkButton.setTextColor(Color.BLACK);
+                }
+            });
+        }
 
         if(submit != null)
         {
@@ -192,7 +223,7 @@ public class Main extends AppCompatActivity {
         } // end if(submit != null)
     } // end onCreate
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -212,5 +243,5 @@ public class Main extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    } // end onOptionsItemSelected
+    } // end onOptionsItemSelected*/
 }
