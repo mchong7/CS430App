@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import static java.lang.Double.compare;
+import android.app.ActionBar;
 
 public class Main extends AppCompatActivity {
     private boolean isEmpty(EditText etText) {
@@ -30,6 +31,9 @@ public class Main extends AppCompatActivity {
         ImageButton help = (ImageButton) findViewById(R.id.helpButton);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        //ActionBar actionBar = getActionBar();
+        //actionBar.setDisplayHomeAsUpEnabled(true);
+
 
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -159,9 +163,6 @@ public class Main extends AppCompatActivity {
                             (double) inputField[7] / reps[7],
                             (double) inputField[8] / reps[8]
                     };
-
-                    // int array to store the adjusted amount of reps for each zone
-                    //int[] adjReps = new int[] {reps[0], reps[1], reps[2], reps[3], reps[4], reps[5], reps[6], reps[7], reps[8]};
 
                     // the user’s goal for efficiency in each zone (50% to start with)
                     double goal = 0.5;
