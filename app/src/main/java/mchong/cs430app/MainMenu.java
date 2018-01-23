@@ -15,13 +15,22 @@ public class MainMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
-        ImageButton basketballImageButton = (ImageButton) findViewById(R.id.basketballButton);
 
+        ImageButton basketballImageButton = (ImageButton) findViewById(R.id.basketballButton);
         basketballImageButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 // Intent is what you use to start another activity
                 Intent intent = new Intent(MainMenu.this, basketballMenu.class);
+                startActivity(intent);
+            }
+        });
+
+        ImageButton baseballImageButton = (ImageButton) findViewById(R.id.baseballButton);
+        baseballImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainMenu.this, baseballMenu.class);
                 startActivity(intent);
             }
         });
