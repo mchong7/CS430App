@@ -1,6 +1,7 @@
 package mchong.cs430app;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -17,6 +18,10 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import static java.lang.Double.compare;
 import android.app.ActionBar;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class Main extends AppCompatActivity {
     private boolean isEmpty(EditText etText) {
@@ -192,20 +197,49 @@ public class Main extends AppCompatActivity {
                     // edit text fields to display the adjusted reps for each zone
                     // rep counts should be no higher than 20 and no lower than 5
                     String[] newText = new String[9];
-
+                    String FILENAME = "baseballRepsFile";
+                    String temp; // string to hold new rep totals + end line
+                    FileOutputStream fos = null;
+                    try {
+                        fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
                     for(int h = 0; h < 9; h++)
                     {
                         if (reps[h] <= 20 && reps[h] >= 5)
                         {
                             newText[h] = Integer.toString(reps[h]);
+                            temp = newText[h] + "\n";
+                            try {
+                                fos.write(temp.getBytes());
+                                fos.close();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+
                         }
                         else if(reps[h] > 20)
                         {
                             newText[h] = "20";
+                            temp = newText[h] + "\n";
+                            try {
+                                fos.write(temp.getBytes());
+                                fos.close();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                         }
                         else if(reps[h] < 5)
                         {
                             newText[h] = "5";
+                            temp = newText[h] + "\n";
+                            try {
+                                fos.write(temp.getBytes());
+                                fos.close();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                         }
                     }
 
@@ -230,25 +264,6 @@ public class Main extends AppCompatActivity {
                     z8.setText("");
                     z9.setText("");
 
-                    /*String z1text = Integer.toString(adjReps[0]);
-                    String z2text = Integer.toString(adjReps[1]);
-                    String z3text = Integer.toString(adjReps[2]);
-                    String z4text = Integer.toString(adjReps[3]);
-                    String z5text = Integer.toString(adjReps[4]);
-                    String z6text = Integer.toString(adjReps[5]);
-                    String z7text = Integer.toString(adjReps[6]);
-                    String z8text = Integer.toString(adjReps[7]);
-                    String z9text = Integer.toString(adjReps[8]);*/
-                    /*z1reps.setText(Integer.toString(adjReps[0]));
-                    z2reps.setText(Integer.toString(adjReps[1]));
-                    z3reps.setText(Integer.toString(adjReps[2]));
-                    z4reps.setText(Integer.toString(adjReps[3]));
-                    z5reps.setText(Integer.toString(adjReps[4]));
-                    z6reps.setText(Integer.toString(adjReps[5]));
-                    z7reps.setText(Integer.toString(adjReps[6]));
-                    z8reps.setText(Integer.toString(adjReps[7]));
-                    z9reps.setText(Integer.toString(adjReps[8]));*/
-
                 } // end onClick
             }); // end setOnClickListener
         } // end if(submit != null)
@@ -259,20 +274,5 @@ public class Main extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
-    } // end onCreateOptionsMenu
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    } // end onOptionsItemSelected*/
+    } // end onCreateOptionsMenu*/
 }
