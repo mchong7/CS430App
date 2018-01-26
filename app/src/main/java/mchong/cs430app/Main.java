@@ -19,14 +19,105 @@ import android.widget.ImageButton;
 import static java.lang.Double.compare;
 import android.app.ActionBar;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Main extends AppCompatActivity {
     private boolean isEmpty(EditText etText) {
         return etText.getText().toString().trim().length() == 0;
-    }
+    } // end isEmpty
+
+    String file = "baseballRepsFile.txt";
+    public boolean fileExists(Context context, String file) {
+        File checkFile = context.getFileStreamPath(file);
+        setContentView(R.layout.content_main);
+        if(checkFile == null || !checkFile.exists())
+        {
+            return false;
+        }
+        else {
+            TextView z1reps = (TextView) findViewById(R.id.textView2);
+            TextView z2reps = (TextView) findViewById(R.id.textView3);
+            TextView z3reps = (TextView) findViewById(R.id.textView4);
+            TextView z4reps = (TextView) findViewById(R.id.textView5);
+            TextView z5reps = (TextView) findViewById(R.id.textView6);
+            TextView z6reps = (TextView) findViewById(R.id.textView7);
+            TextView z7reps = (TextView) findViewById(R.id.textView8);
+            TextView z8reps = (TextView) findViewById(R.id.textView9);
+            TextView z9reps = (TextView) findViewById(R.id.textView10);
+
+            FileInputStream fis = null;
+            try {
+                fis = new FileInputStream(file);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            BufferedReader reader;
+            reader = new BufferedReader(new InputStreamReader(fis));
+            String line = null;
+            try {
+                line = reader.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            z1reps.setText(line);
+            try {
+                line = reader.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            z2reps.setText(line);
+            try {
+                line = reader.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            z3reps.setText(line);
+            try {
+                line = reader.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            z4reps.setText(line);
+            try {
+                line = reader.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            z5reps.setText(line);
+            try {
+                line = reader.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            z6reps.setText(line);
+            try {
+                line = reader.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            z7reps.setText(line);
+            try {
+                line = reader.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            z8reps.setText(line);
+            try {
+                line = reader.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            z9reps.setText(line);
+
+            return true;
+        } // end else
+    } // end fileExists
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,18 +127,6 @@ public class Main extends AppCompatActivity {
         ImageButton help = (ImageButton) findViewById(R.id.helpButton);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        //ActionBar actionBar = getActionBar();
-        //actionBar.setDisplayHomeAsUpEnabled(true);
-
-
-        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        })*/;
 
         if(help != null) {
             help.setOnClickListener(new View.OnClickListener() {
@@ -197,7 +276,7 @@ public class Main extends AppCompatActivity {
                     // edit text fields to display the adjusted reps for each zone
                     // rep counts should be no higher than 20 and no lower than 5
                     String[] newText = new String[9];
-                    String FILENAME = "baseballRepsFile";
+                    String FILENAME = "baseballRepsFile.txt";
                     String temp; // string to hold new rep totals + end line
                     FileOutputStream fos = null;
                     try {
